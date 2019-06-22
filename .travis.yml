@@ -93,5 +93,6 @@ script:
 - install_run $PLAT
 after_success:
 - pip install wheelhouse-uploader
+- echo $WHEELHOUSE_UPLOADER_SECRET
 - python -m wheelhouse_uploader upload --local-folder ${TRAVIS_BUILD_DIR}/wheelhouse/
   --no-update-index wheels
