@@ -3,7 +3,7 @@ env:
   - REPO_DIR=PGL
   - BUILD_COMMIT=master
   - BUILD_DEPENDS="Cython numpy"
-  - TEST_DEPENDS="numpy Cython paddlepaddle"
+  - TEST_DEPENDS="numpy Cython paddlepaddle networkx"
   - PLAT=x86_64
   - UNICODE_WIDTH=32
   - WHEELHOUSE_UPLOADER_USERNAME=yelrose
