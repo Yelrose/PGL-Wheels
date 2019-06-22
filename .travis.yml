@@ -7,7 +7,8 @@ env:
   - PLAT=x86_64
   - UNICODE_WIDTH=32
   - WHEELHOUSE_UPLOADER_USERNAME=travis-worker
-  - secure: Wo9Om5pXNZqh6JBzoXlqdsHpW4+H3k/1n4krQceTGUYE7xLK8ZA9KAbo6drc0vmGNhB0BIQqXit2WHHAfXPGtZ5iL9iCQz9ruzVwJx7sSTXf5usThNqyGXHeYYk7Nd4+yryR5qeGvdhY6GUPZ58Y/TecAEXXiZiZFnR5PjUgZ1yclS8/APh/qowtxlZSN4JtX8wmyEou7NMfHpdR4vzqUzsVd6RxVhKrYTNqWosQlAeIRzxIs0YczK0FKryi838wuJLbMlvNOO49FODql8hPIVZIZpWsUkvuhrWwO6U/pf7285tSUHDisaRsiBNOYARTTqd7fcudS6qjQzZmZMZSKL9j5nYIOaQDTN6TqXALMtW8HaIe6iSmtrYYZyFjjq95SHXKv5SFKnj7vulxkn86F+00d2re1YRwzncY44KCjC7F5ysAvY2RQsk8JIzfTvuday9mZO3+ukOwGRsRwuMqabN578Z9rHnwbAuNXuxhwqX4/yZqLV6heUs4nN5fzFItrfNF0C2Zi9VZprYZysSo8S7weVM50tWmMu2/VfVYhBJFGunfuv8OwuFiN3ebxvHnrYXUvE6sakkHBicP+KsJripuodq5rScRHxuK/Md0gumOg48xYIsN2nU+WhpF6zrmJycUmbZRw8756HjgyQGtyAGeOKfIRq0PT/S5oM+GRF4=
+  - TWINE_USERNAME=yelrose
+  - secure: VyvntgpNNw3LvPVP2UkvBiR9H3++QevxC+hXZ2AXOVDwwvoYdMdxt9SHMQhKdJiKlz0D0InFzXzn4N/02s/QPh7ZzD2a5ybufNzkH5zlDnn4xjmS4A/h1Vr0Vfx2GktK6pzc953IlEEpc1D1aGtg7VTV3s1Qp0P5g4ee82VsGW3ntkSqdm4DOU4MQco5LKxkR1OAmq2mMR/TJaGUtqBiGmYPIzttqX1fB3Mc0owZsv3Xzxi4fcQQ9EjMDA0eFO9QN50zhLb4dxDT6gSLNr+YtTHnwYruzPd/dRwz7yHYadaJjqY69KaxrlmPhFn5RT2RNQw3dB6u6Yf9V8uIrV7xU/mWBQBNheov5XnXBq+Pwnt0UAoU/zMSbahTcIPEKFRWVCx1Ct1FZaPBWJQvlZSOA7RCTLbUZWBTLkyYDknTvHp2jZtsLkiJ1F14r0OKJVM1XKm2ahq9p4Ty2oLBHom4KK6M353X/WLR575r1jzKVI3tPNYhiqgxaPCTM1uU26MYmsYnkiCEV+M0JQBDT8daU3Oi9n1000+Rt/lj81oRRQAaIT9i1LHVPOZU4pF7++PNBaYfkCoXRDGZpRVoY8ay9hoWKO1qDLSfXM1fOm+Xm1/UCzCZp1pE+Vc/vUChRnOM1dPJsxhBviWA5TKxJHfNaaNDF519p2eAZOZNahxHpgo=
 language: python
 python: 3.5
 dist: trusty
@@ -92,6 +93,6 @@ install:
 script:
 - install_run $PLAT
 after_success:
-- pip install wheelhouse-uploader
-- python -m wheelhouse_uploader upload --local-folder ${TRAVIS_BUILD_DIR}/wheelhouse/
-  --no-update-index wheels
+- pip install twine
+- twine upload ${TRAVIS_BUILD_DIR}/wheelhouse/* --skip-existing -p $TWINE_PASSWD -u
+  $TWINE_USERNAME --repository-url https://test.pypi.org/legacy/
