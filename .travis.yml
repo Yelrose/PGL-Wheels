@@ -1,98 +1,96 @@
 env:
   global:
-      - REPO_DIR=PGL
-    - BUILD_COMMIT=master
-    - BUILD_DEPENDS="Cython numpy"
-    - TEST_DEPENDS="numpy Cython paddlepaddle"
-    - PLAT=x86_64
-    - UNICODE_WIDTH=32
-    - WHEELHOUSE_UPLOADER_USERNAME=yelrose
-    - secure: RdvwkE4oFXoUjDg8n74hoxNH/yMW7wiraRNAOEYWY3hoTWAiEzytDv8KFCH7oU/4aQ4/BeRmBgAsUYvypodbH+GqOsmjnFLEGkRxU6z2gbxngslnZWKf9o6UNRpYCwBffihWf0eGz5crzUHDEIgMXx15QlMUgMCNcszLxGPYj0rS2mPNKz6IPtpE7dMnu2GppCyExFCcWshYkqSX+LiJJk9AKVJdK56++gTisYo3mceUICDlJvbsrWqWwSFTT/Rh9wyqE4qYzqf/W3sISSdxl5ucIm7/dEHUGOEYKXTuQBoyAVjClsWZraffqVyYOSREdCH7pSLVBEoNGbXLZGo0FxECQjsdw6GmwMDA86xGSF1jIMut7sFixmL0uKxTDFyo78glWxeHAEEJUNtF1aKLH2TCfYXzJchv3GMoza8qDwL+eLcAtDsnrv8EKdZ8DSebenwn9gp/RzzqzsYSXVMKUDtKJv+f/mXU+AZD0HvdMZA0pQpBDZXxlyR7Ko+RocL5/5Yb6ke3T29IiE95b4As/dSElvC0A6m+NXTtdd3Bg8XN89DwcAibfujKItvsmMXNrNWM4B/h17GMboo5/OiylKklWrGGDFSgAvF+MohVrJMSP1g29bTlnnKhykpYa5L8/XdGR9x1Fb2UL7d8zNh5RHd6tFOoF4rs7Bw7PsYWU/M=
+  - REPO_DIR=PGL
+  - BUILD_COMMIT=master
+  - BUILD_DEPENDS="Cython numpy"
+  - TEST_DEPENDS="numpy Cython paddlepaddle"
+  - PLAT=x86_64
+  - UNICODE_WIDTH=32
+  - WHEELHOUSE_UPLOADER_USERNAME=yelrose
+  - secure: RdvwkE4oFXoUjDg8n74hoxNH/yMW7wiraRNAOEYWY3hoTWAiEzytDv8KFCH7oU/4aQ4/BeRmBgAsUYvypodbH+GqOsmjnFLEGkRxU6z2gbxngslnZWKf9o6UNRpYCwBffihWf0eGz5crzUHDEIgMXx15QlMUgMCNcszLxGPYj0rS2mPNKz6IPtpE7dMnu2GppCyExFCcWshYkqSX+LiJJk9AKVJdK56++gTisYo3mceUICDlJvbsrWqWwSFTT/Rh9wyqE4qYzqf/W3sISSdxl5ucIm7/dEHUGOEYKXTuQBoyAVjClsWZraffqVyYOSREdCH7pSLVBEoNGbXLZGo0FxECQjsdw6GmwMDA86xGSF1jIMut7sFixmL0uKxTDFyo78glWxeHAEEJUNtF1aKLH2TCfYXzJchv3GMoza8qDwL+eLcAtDsnrv8EKdZ8DSebenwn9gp/RzzqzsYSXVMKUDtKJv+f/mXU+AZD0HvdMZA0pQpBDZXxlyR7Ko+RocL5/5Yb6ke3T29IiE95b4As/dSElvC0A6m+NXTtdd3Bg8XN89DwcAibfujKItvsmMXNrNWM4B/h17GMboo5/OiylKklWrGGDFSgAvF+MohVrJMSP1g29bTlnnKhykpYa5L8/XdGR9x1Fb2UL7d8zNh5RHd6tFOoF4rs7Bw7PsYWU/M=
 language: python
 python: 3.5
 dist: trusty
 services: docker
 matrix:
   exclude:
-    - python: 3.5
+  - python: 3.5
   include:
-    - os: linux
-      env: MB_PYTHON_VERSION=2.7
-    - os: linux
-      env:
-        - MB_PYTHON_VERSION=2.7
-        - UNICODE_WIDTH=16
-    - os: linux
-      env:
-        - MB_PYTHON_VERSION=2.7
-        - PLAT=i686
-    - os: linux
-      env:
-        - MB_PYTHON_VERSION=2.7
-        - PLAT=i686
-        - UNICODE_WIDTH=16
-    - os: linux
-      env:
-        - MB_PYTHON_VERSION=3.4
-    - os: linux
-      env:
-        - MB_PYTHON_VERSION=3.4
-        - PLAT=i686
-    - os: linux
-      env:
-        - MB_PYTHON_VERSION=3.5
-    - os: linux
-      env:
-        - MB_PYTHON_VERSION=3.5
-        - PLAT=i686
-    - os: linux
-      env:
-        - MB_PYTHON_VERSION=3.6
-    - os: linux
-      env:
-        - MB_PYTHON_VERSION=3.6
-        - PLAT=i686
-    - os: osx
-      language: generic
-      env:
-        - MB_PYTHON_VERSION=2.7
-    - os: osx
-      env:
-        - MB_PYTHON_VERSION=2.7
-        - MB_PYTHON_OSX_VER=10.9
-    - os: osx
-      language: generic
-      env:
-        - MB_PYTHON_VERSION=3.4
-    - os: osx
-      language: generic
-      env:
-        - MB_PYTHON_VERSION=3.5
-    - os: osx
-      language: generic
-      env:
-        - MB_PYTHON_VERSION=3.6
-    - os: osx
-      language: generic
-      env:
-        - MB_PYTHON_VERSION=3.7
-        - MB_PYTHON_OSX_VER=10.9
-    - os: osx
-      language: generic
-      env:
-        - MB_PYTHON_VERSION=pypy-5.7
+  - os: linux
+    env: MB_PYTHON_VERSION=2.7
+  - os: linux
+    env:
+    - MB_PYTHON_VERSION=2.7
+    - UNICODE_WIDTH=16
+  - os: linux
+    env:
+    - MB_PYTHON_VERSION=2.7
+    - PLAT=i686
+  - os: linux
+    env:
+    - MB_PYTHON_VERSION=2.7
+    - PLAT=i686
+    - UNICODE_WIDTH=16
+  - os: linux
+    env:
+    - MB_PYTHON_VERSION=3.4
+  - os: linux
+    env:
+    - MB_PYTHON_VERSION=3.4
+    - PLAT=i686
+  - os: linux
+    env:
+    - MB_PYTHON_VERSION=3.5
+  - os: linux
+    env:
+    - MB_PYTHON_VERSION=3.5
+    - PLAT=i686
+  - os: linux
+    env:
+    - MB_PYTHON_VERSION=3.6
+  - os: linux
+    env:
+    - MB_PYTHON_VERSION=3.6
+    - PLAT=i686
+  - os: osx
+    language: generic
+    env:
+    - MB_PYTHON_VERSION=2.7
+  - os: osx
+    env:
+    - MB_PYTHON_VERSION=2.7
+    - MB_PYTHON_OSX_VER=10.9
+  - os: osx
+    language: generic
+    env:
+    - MB_PYTHON_VERSION=3.4
+  - os: osx
+    language: generic
+    env:
+    - MB_PYTHON_VERSION=3.5
+  - os: osx
+    language: generic
+    env:
+    - MB_PYTHON_VERSION=3.6
+  - os: osx
+    language: generic
+    env:
+    - MB_PYTHON_VERSION=3.7
+    - MB_PYTHON_OSX_VER=10.9
+  - os: osx
+    language: generic
+    env:
+    - MB_PYTHON_VERSION=pypy-5.7
 before_install:
-    - source multibuild/common_utils.sh
-    - source multibuild/travis_steps.sh
-    - before_install
+- source multibuild/common_utils.sh
+- source multibuild/travis_steps.sh
+- before_install
 install:
-    - echo $REPO_DIR $PLAT
-    - clean_code $REPO_DIR $BUILD_COMMIT
-    - build_wheel $REPO_DIR $PLAT
+- clean_code $REPO_DIR $BUILD_COMMIT
+- build_wheel $REPO_DIR $PLAT
 script:
-    - install_run $PLAT
+- install_run $PLAT
 after_success:
-    - pip install wheelhouse-uploader
-    - python -m wheelhouse_uploader upload --local-folder ${TRAVIS_BUILD_DIR}/wheelhouse/
-        --no-update-index wheels
-
+- pip install wheelhouse-uploader
+- python -m wheelhouse_uploader upload --local-folder ${TRAVIS_BUILD_DIR}/wheelhouse/
+  --no-update-index wheels
