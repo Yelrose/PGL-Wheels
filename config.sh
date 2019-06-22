@@ -15,8 +15,9 @@ try:
     import pgl
     print("Import Success")
     sys.exit(0)
-except:
+except Exception as e:
     print("Import Failed")
+    print(e)
     sys.exit(1)' > test_import.py
     python test_import.py
 }
