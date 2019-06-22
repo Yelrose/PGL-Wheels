@@ -1,7 +1,7 @@
 env:
   global:
   - REPO_DIR=PGL
-  - BUILD_COMMIT=v0.1.0
+  - BUILD_COMMIT=master
   - BUILD_DEPENDS="Cython numpy"
   - TEST_DEPENDS="numpy Cython paddlepaddle"
   - PLAT=x86_64
