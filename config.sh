@@ -21,4 +21,3 @@ except Exception as e:
     sys.exit(1)' > test_import.py
     python test_import.py
 }
-run_tests
