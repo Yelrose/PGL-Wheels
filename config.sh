@@ -13,8 +13,10 @@ function run_tests {
     echo 'import sys
 try:
     import pgl
+    print("Import Success")
     sys.exit(0)
 except:
+    print("Import Failed")
     sys.exit(1)' > test_import.py
     python test_import.py
 }
