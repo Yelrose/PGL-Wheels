@@ -6,7 +6,7 @@ env:
   - TEST_DEPENDS="numpy Cython paddlepaddle networkx"
   - PLAT=x86_64
   - UNICODE_WIDTH=32
-  - WHEELHOUSE_UPLOADER_USERNAME=yelrose
+  - WHEELHOUSE_UPLOADER_USERNAME=travis-worker
   - secure: Wo9Om5pXNZqh6JBzoXlqdsHpW4+H3k/1n4krQceTGUYE7xLK8ZA9KAbo6drc0vmGNhB0BIQqXit2WHHAfXPGtZ5iL9iCQz9ruzVwJx7sSTXf5usThNqyGXHeYYk7Nd4+yryR5qeGvdhY6GUPZ58Y/TecAEXXiZiZFnR5PjUgZ1yclS8/APh/qowtxlZSN4JtX8wmyEou7NMfHpdR4vzqUzsVd6RxVhKrYTNqWosQlAeIRzxIs0YczK0FKryi838wuJLbMlvNOO49FODql8hPIVZIZpWsUkvuhrWwO6U/pf7285tSUHDisaRsiBNOYARTTqd7fcudS6qjQzZmZMZSKL9j5nYIOaQDTN6TqXALMtW8HaIe6iSmtrYYZyFjjq95SHXKv5SFKnj7vulxkn86F+00d2re1YRwzncY44KCjC7F5ysAvY2RQsk8JIzfTvuday9mZO3+ukOwGRsRwuMqabN578Z9rHnwbAuNXuxhwqX4/yZqLV6heUs4nN5fzFItrfNF0C2Zi9VZprYZysSo8S7weVM50tWmMu2/VfVYhBJFGunfuv8OwuFiN3ebxvHnrYXUvE6sakkHBicP+KsJripuodq5rScRHxuK/Md0gumOg48xYIsN2nU+WhpF6zrmJycUmbZRw8756HjgyQGtyAGeOKfIRq0PT/S5oM+GRF4=
 language: python
 python: 3.5
@@ -93,6 +93,5 @@ script:
 - install_run $PLAT
 after_success:
 - pip install wheelhouse-uploader
-- echo $WHEELHOUSE_UPLOADER_SECRET
 - python -m wheelhouse_uploader upload --local-folder ${TRAVIS_BUILD_DIR}/wheelhouse/
   --no-update-index wheels
