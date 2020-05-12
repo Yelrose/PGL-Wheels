@@ -16,7 +16,13 @@ environment:
 
   matrix:
     - PYTHON: C:\Python27
+      PYTHON_VERSION: "2.7.18"
+      PYTHON_ARCH: "32"
+   
     - PYTHON: C:\Python27-x64
+      PYTHON_VERSION: "2.7.18"
+      PYTHON_ARCH: "64"
+
     - PYTHON: C:\Python36
     - PYTHON: C:\Python36-x64
     - PYTHON: C:\Python37
