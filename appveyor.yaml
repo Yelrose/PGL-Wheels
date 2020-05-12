@@ -1,0 +1,65 @@
+# vim ft=yaml
+# CI on Windows via appveyor
+
+environment:
+  global:
+    REPO_DIR: PGL
+    PACKAGE_NAME: pgl
+    BUILD_COMMIT: master
+    NP_BUILD_DEP: "Cython numpy"
+    NP_TEST_DEP: "numpy Cython paddlepaddle networkx"
+    WHEELHOUSE_UPLOADER_USERNAME: travis-worker
+    TWINE_USERNAME: yelrose
+    secure:
+        VyvntgpNNw3LvPVP2UkvBiR9H3++QevxC+hXZ2AXOVDwwvoYdMdxt9SHMQhKdJiKlz0D0InFzXzn4N/02s/QPh7ZzD2a5ybufNzkH5zlDnn4xjmS4A/h1Vr0Vfx2GktK6pzc953IlEEpc1D1aGtg7VTV3s1Qp0P5g4ee82VsGW3ntkSqdm4DOU4MQco5LKxkR1OAmq2mMR/TJaGUtqBiGmYPIzttqX1fB3Mc0owZsv3Xzxi4fcQQ9EjMDA0eFO9QN50zhLb4dxDT6gSLNr+YtTHnwYruzPd/dRwz7yHYadaJjqY69KaxrlmPhFn5RT2RNQw3dB6u6Yf9V8uIrV7xU/mWBQBNheov5XnXBq+Pwnt0UAoU/zMSbahTcIPEKFRWVCx1Ct1FZaPBWJQvlZSOA7RCTLbUZWBTLkyYDknTvHp2jZtsLkiJ1F14r0OKJVM1XKm2ahq9p4Ty2oLBHom4KK6M353X/WLR575r1jzKVI3tPNYhiqgxaPCTM1uU26MYmsYnkiCEV+M0JQBDT8daU3Oi9n1000+Rt/lj81oRRQAaIT9i1LHVPOZU4pF7++PNBaYfkCoXRDGZpRVoY8ay9hoWKO1qDLSfXM1fOm+Xm1/UCzCZp1pE+Vc/vUChRnOM1dPJsxhBviWA5TKxJHfNaaNDF519p2eAZOZNahxHpgo=
+
+  matrix:
+    - PYTHON: C:\Python36
+    - PYTHON: C:\Python36-x64
+    - PYTHON: C:\Python37
+    - PYTHON: C:\Python37-x64
+    - PYTHON: C:\Python38
+    - PYTHON: C:\Python38-x64
+
+
+matrix:
+    fast_finish: true
+
+install:
+    # Fetch submodules
+    - git submodule update --init --recursive
+
+    # Install new Python if necessary
+    - ps: .\multibuild\install_python.ps1
+
+    # Prepend newly installed Python to the PATH of this build (this cannot be
+    # done from inside the powershell script as it would require to restart
+    # the parent CMD process).
+    - SET PATH=%PYTHON%;%PYTHON%\Scripts;%PATH%
+    - python -m pip install -U pip setuptools
+
+    # Fix MSVC builds for 64-bit Python. See:
+    # http://stackoverflow.com/questions/32091593/cannot-install-windows-sdk-7-1-on-windows-10
+    - echo "C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /x64 > "C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\amd64/vcvars64.bat"
+
+    # Check that we have the expected version and architecture for Python
+    - python --version
+    - python -c "import struct; print(struct.calcsize('P') * 8)"
+
+build_script:
+    # Install the dependencies of the project.
+    - python -m pip install %NP_BUILD_DEP%
+    # Build wheel
+    - python -m pip install wheel
+    - cd %REPO_DIR%
+    - git checkout %BUILD_COMMIT%
+    - python setup.py bdist_wheel
+    - cd ..
+
+artifacts:
+    - path: "%REPO_DIR%\\dist\\*"
+
+on_success:
+  - python -m pip install twine
+  - "python -m twine upload %REPO_DIR%\\dist\\* --skip-existing -p %TWINE_PASSWD -u %TWINE_USERNAME% --repository-url https://test.pypi.org/legacy/"
+
