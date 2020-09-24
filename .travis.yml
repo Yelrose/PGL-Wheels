@@ -1,9 +1,9 @@
 env:
   global:
   - REPO_DIR=PGL
-  - BUILD_COMMIT=master
+  - BUILD_COMMIT=main
   - BUILD_DEPENDS="Cython numpy"
-  - TEST_DEPENDS="numpy Cython paddlepaddle networkx"
+  - TEST_DEPENDS="numpy Cython opencv-python==4.2.0.32 paddlepaddle networkx"
   - PLAT=x86_64
   - UNICODE_WIDTH=32
   - WHEELHOUSE_UPLOADER_USERNAME=travis-worker
