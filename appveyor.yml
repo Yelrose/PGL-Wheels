@@ -6,7 +6,7 @@ environment:
     REPO_DIR: PGL
     PACKAGE_NAME: pgl
     BUILD_COMMIT: main
-    NP_BUILD_DEP: "Cython numpy"
+    NP_BUILD_DEP: "Cython numpy opencv-python==4.2.0.32"
     NP_TEST_DEP: "numpy Cython paddlepaddle networkx"
     WHEELHOUSE_UPLOADER_USERNAME: travis-worker
     TWINE_USERNAME: yelrose
