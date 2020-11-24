@@ -40,6 +40,11 @@ matrix:
     env:
     - MB_PYTHON_VERSION=3.8
     - TEST_DEPENDS="numpy Cython opencv-python==4.2.0.32 paddlepaddle==1.8.5 networkx rarfile==3.0"
+    before_install:
+      - source multibuild/common_utils.sh
+      - source multibuild/travis_steps.sh
+      - sudo apt-get install libav-tools libgomp1
+      - before_install
   - os: osx
     language: generic
     env:
@@ -57,6 +62,7 @@ matrix:
     env:
     - MB_PYTHON_VERSION=3.8
     - MB_PYTHON_OSX_VER=10.9
+    - TEST_DEPENDS="numpy Cython opencv-python==4.2.0.32 paddlepaddle==1.8.5 networkx rarfile==3.0"
   - os: osx
     language: generic
     env:
