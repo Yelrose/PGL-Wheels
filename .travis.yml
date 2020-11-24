@@ -61,13 +61,13 @@ matrix:
     language: generic
     env:
     - MB_PYTHON_VERSION=3.8
-    - MB_PYTHON_OSX_VER=10.9
+    - MB_PYTHON_OSX_VER=10.14
     - TEST_DEPENDS="numpy Cython opencv-python==4.2.0.32 paddlepaddle==1.8.5 networkx rarfile==3.0"
   - os: osx
     language: generic
     env:
     - MB_PYTHON_VERSION=3.7
-    - MB_PYTHON_OSX_VER=10.9
+    - MB_PYTHON_OSX_VER=10.14
   - os: osx
     language: generic
     env:
