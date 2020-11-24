@@ -39,6 +39,7 @@ matrix:
   - os: linux
     env:
     - MB_PYTHON_VERSION=3.8
+    - TEST_DEPENDS="numpy Cython opencv-python==4.2.0.32 paddlepaddle==1.8.5 networkx rarfile==3.0"
   - os: osx
     language: generic
     env:
