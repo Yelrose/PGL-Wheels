@@ -9,6 +9,7 @@ function pre_build {
 
 function run_tests {
     # Runs tests on installed distribution from an empty directory
+    python -m pip install paddlepaddle==2.0.0rc1 -i https://mirror.baidu.com/pypi/simple
     python --version
     echo 'import sys
 try:

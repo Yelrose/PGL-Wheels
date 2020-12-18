@@ -1,9 +1,9 @@
 env:
   global:
   - REPO_DIR=PGL
-  - BUILD_COMMIT=main
+  - BUILD_COMMIT=pgl-2.0.0a
   - BUILD_DEPENDS="Cython numpy"
-  - TEST_DEPENDS="numpy Cython opencv-python==4.2.0.32 paddlepaddle==1.7.2 networkx rarfile==3.0"
+  - TEST_DEPENDS="numpy Cython opencv-python==4.2.0.32 networkx rarfile==3.0"
   - PLAT=x86_64
   - UNICODE_WIDTH=32
   - WHEELHOUSE_UPLOADER_USERNAME=travis-worker
@@ -39,12 +39,6 @@ matrix:
   - os: linux
     env:
     - MB_PYTHON_VERSION=3.8
-    - TEST_DEPENDS="numpy Cython opencv-python==4.2.0.32 paddlepaddle==1.8.5 networkx rarfile==3.0"
-    before_install:
-      - source multibuild/common_utils.sh
-      - source multibuild/travis_steps.sh
-      - sudo apt-get install libav-tools libgomp1
-      - before_install
   - os: osx
     language: generic
     env:
@@ -62,7 +56,6 @@ matrix:
     env:
     - MB_PYTHON_VERSION=3.8
     - MB_PYTHON_OSX_VER=10.14
-    - TEST_DEPENDS="numpy Cython opencv-python==4.2.0.32 paddlepaddle==1.8.5 networkx rarfile==3.0"
   - os: osx
     language: generic
     env:
@@ -84,10 +77,10 @@ script:
 - install_run $PLAT
 after_success:
 - pip install twine
-#- twine upload ${TRAVIS_BUILD_DIR}/wheelhouse/* --skip-existing -p $TWINE_PASSWD -u
-#  $TWINE_USERNAME --repository-url https://test.pypi.org/legacy/
-
 - twine upload ${TRAVIS_BUILD_DIR}/wheelhouse/* --skip-existing -p $TWINE_PASSWD -u
-  $TWINE_USERNAME 
+  $TWINE_USERNAME --repository-url https://test.pypi.org/legacy/
+
+#- twine upload ${TRAVIS_BUILD_DIR}/wheelhouse/* --skip-existing -p $TWINE_PASSWD -u
+#  $TWINE_USERNAME 
 
 
