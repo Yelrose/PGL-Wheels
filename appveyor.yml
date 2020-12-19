@@ -7,7 +7,7 @@ environment:
     PACKAGE_NAME: pgl
     BUILD_COMMIT: pgl-2.0.0a 
     NP_BUILD_DEP: "Cython numpy opencv-python==4.2.0.32"
-    NP_TEST_DEP: "numpy Cython networkx"
+    NP_TEST_DEP: "numpy Cython networkx pytest"
     WHEELHOUSE_UPLOADER_USERNAME: travis-worker
     TWINE_USERNAME: yelrose
     TWINE_PASSWD:
