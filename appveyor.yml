@@ -65,7 +65,8 @@ test_script:
     - cd %REPO_DIR%
 
     # install from wheel
-    - pip install --no-index --find-links dist/ %PACKAGE_NAME%
+    - python -m pip install %NP_TEST_DEP%
+    - python -m pip install --no-index --find-links dist/ %PACKAGE_NAME%
 
     # run tests from install wheel
     - cd tests 
