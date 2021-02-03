@@ -5,7 +5,7 @@ environment:
   global:
     REPO_DIR: PGL
     PACKAGE_NAME: pgl
-    BUILD_COMMIT: pgl-2.0.0a 
+    BUILD_COMMIT: main
     NP_BUILD_DEP: "Cython numpy opencv-python==4.2.0.32"
     NP_TEST_DEP: "numpy Cython networkx pytest"
     WHEELHOUSE_UPLOADER_USERNAME: travis-worker
@@ -75,6 +75,6 @@ test_script:
 
 on_success:
   - python -m pip install twine
-  #- "python -m twine upload %REPO_DIR%\\dist\\* --skip-existing -p %TWINE_PASSWD% -u %TWINE_USERNAME% --repository-url https://test.pypi.org/legacy/"
-  - "python -m twine upload %REPO_DIR%\\dist\\* --skip-existing -p %TWINE_PASSWD% -u %TWINE_USERNAME% "
+  - "python -m twine upload %REPO_DIR%\\dist\\* --skip-existing -p %TWINE_PASSWD% -u %TWINE_USERNAME% --repository-url https://test.pypi.org/legacy/"
+  #- "python -m twine upload %REPO_DIR%\\dist\\* --skip-existing -p %TWINE_PASSWD% -u %TWINE_USERNAME% "
 
