@@ -10,7 +10,7 @@ function pre_build {
 function run_tests {
     # Runs tests on installed distribution from an empty directory
     python -m pip install requests[security] -U
-    python -m pip install paddlepaddle -i https://mirror.baidu.com/pypi/simple
+    python -m pip install paddlepaddle==2.0.0 
     python --version
     echo 'import sys
 try:
