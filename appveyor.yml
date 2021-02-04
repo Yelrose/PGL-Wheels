@@ -70,8 +70,8 @@ test_script:
     - python -m pip install paddlepaddle==2.0.0
 
     # run tests from install wheel
-    - python -c "import pgl"  
     - cd ..
+    - python -c "import pgl"  
 
 on_success:
   - python -m pip install twine
