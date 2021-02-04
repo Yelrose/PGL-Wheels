@@ -88,7 +88,6 @@ matrix:
 before_install:
 - source multibuild/common_utils.sh
 - source multibuild/travis_steps.sh
-- apt-get install libgomp1 
 - before_install
 install:
 - echo $REPO_DIR $BUILD_COMMIT
