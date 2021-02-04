@@ -3,7 +3,7 @@ env:
   - REPO_DIR=PGL
   - BUILD_COMMIT=main
   - BUILD_DEPENDS="Cython numpy"
-  - TEST_DEPENDS="numpy Cython opencv-python==4.2.0.32 networkx rarfile==3.0 pytest"
+  - TEST_DEPENDS="numpy==1.19.3 Cython opencv-python==4.2.0.32 networkx rarfile==3.0 pytest"
   - PLAT=x86_64
   - UNICODE_WIDTH=32
   - WHEELHOUSE_UPLOADER_USERNAME=travis-worker
