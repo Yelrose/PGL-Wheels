@@ -15,11 +15,11 @@ environment:
             wmtGDxtbr+07s1EeBfea7w==
 
   matrix:
-    - PYTHON: C:\Python36
+    #- PYTHON: C:\Python36
     - PYTHON: C:\Python36-x64
-    - PYTHON: C:\Python37
+    #- PYTHON: C:\Python37
     - PYTHON: C:\Python37-x64
-    - PYTHON: C:\Python38
+    #- PYTHON: C:\Python38
     - PYTHON: C:\Python38-x64
 
 
