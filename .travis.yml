@@ -18,35 +18,35 @@ matrix:
     - os: linux
       dist: xenial
       env:
-        - MB_ML_VER=2010
+        - MB_ML_VER=2014
         - DOCKER_TEST_IMAGE=multibuild/xenial_{PLAT}
         - MB_PYTHON_VERSION=2.7
 
     - os: linux
       dist: xenial
       env:
-        - MB_ML_VER=2010
+        - MB_ML_VER=2014
         - DOCKER_TEST_IMAGE=multibuild/xenial_{PLAT}
         - MB_PYTHON_VERSION=3.6
 
     - os: linux
       dist: xenial
       env:
-        - MB_ML_VER=2010
+        - MB_ML_VER=2014
         - DOCKER_TEST_IMAGE=multibuild/xenial_{PLAT}
         - MB_PYTHON_VERSION=3.7
 
     - os: linux
       dist: xenial
       env:
-        - MB_ML_VER=2010
+        - MB_ML_VER=2014
         - DOCKER_TEST_IMAGE=multibuild/xenial_{PLAT}
         - MB_PYTHON_VERSION=3.8
 
     - os: linux
       dist: xenial
       env:
-        - MB_ML_VER=2010
+        - MB_ML_VER=2014
         - DOCKER_TEST_IMAGE=multibuild/xenial_{PLAT}
         - MB_PYTHON_VERSION=3.9
 
