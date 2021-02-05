@@ -12,9 +12,10 @@ function run_tests {
     python -m pip install requests[security] -U
     if [ -n "IS_OSX" ]
     then
-        strings /usr/lib64/libstdc++.so.6 | grep GLIBCXX
+
+
     fi
-    python -m pip install paddlepaddle==2.0.0 
+    python -m pip install paddlepaddle==2.0.0-rc1 
     python --version
     echo 'import sys
 try:
