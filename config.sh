@@ -9,12 +9,10 @@ function pre_build {
 
 function run_tests {
     # Runs tests on installed distribution from an empty directory
-    python -m pip install requests[security] -U
-    if [ -n "IS_OSX" ]
-    then
-
-
-    fi
+    #python -m pip install requests[security] -U
+    #if [ -n "IS_OSX" ]
+    #then
+    #fi
     python -m pip install paddlepaddle==2.0.0-rc1 
     python --version
     echo 'import sys
