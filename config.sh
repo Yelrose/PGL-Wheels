@@ -10,6 +10,10 @@ function pre_build {
 function run_tests {
     # Runs tests on installed distribution from an empty directory
     python -m pip install requests[security] -U
+    if [ -n "IS_OSX" ]
+    then
+        strings /usr/lib64/libstdc++.so.6 | grep GLIBCXX
+    fi
     python -m pip install paddlepaddle==2.0.0 
     python --version
     echo 'import sys

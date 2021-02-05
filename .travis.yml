@@ -89,7 +89,6 @@ before_install:
 - source multibuild/common_utils.sh
 - source multibuild/travis_steps.sh
 - before_install
-- yum install libstdc++6
 install:
 - echo $REPO_DIR $BUILD_COMMIT
 - clean_code $REPO_DIR $BUILD_COMMIT
