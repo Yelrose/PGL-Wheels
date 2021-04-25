@@ -13,6 +13,7 @@ function run_tests {
     #if [ -n "IS_OSX" ]
     #then
     #fi
+
     python -m pip install paddlepaddle==2.0.0-rc1 
     python --version
     echo 'import sys
