@@ -15,7 +15,8 @@ function run_tests {
     #then
     #fi
 
-    python -m pip install paddlepaddle==2.0.0-rc1 
+    python -m pip install paddlepaddle
+    #==2.0.0-rc1 
     python --version
     echo 'import sys
 try:
