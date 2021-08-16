@@ -1,7 +1,7 @@
 env:
   global:
   - REPO_DIR=PGL
-  - BUILD_COMMIT=main
+  - BUILD_COMMIT=add_3rd_party_metis
   - BUILD_DEPENDS="Cython numpy==1.19.3"
   - TEST_DEPENDS="numpy==1.19.3 Cython opencv-python==4.2.0.32 networkx rarfile==3.0 pytest"
   - PLAT=x86_64
@@ -123,7 +123,7 @@ after_success:
 #- twine upload ${TRAVIS_BUILD_DIR}/wheelhouse/* --skip-existing -p $TWINE_PASSWD -u
 #  $TWINE_USERNAME --repository-url https://test.pypi.org/legacy/
 
-- twine upload ${TRAVIS_BUILD_DIR}/wheelhouse/* --skip-existing -p $TWINE_PASSWD -u
-  $TWINE_USERNAME 
+#- twine upload ${TRAVIS_BUILD_DIR}/wheelhouse/* --skip-existing -p $TWINE_PASSWD -u
+#  $TWINE_USERNAME 
 
 

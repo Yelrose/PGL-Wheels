@@ -5,7 +5,7 @@ environment:
   global:
     REPO_DIR: PGL
     PACKAGE_NAME: pgl
-    BUILD_COMMIT: main
+    BUILD_COMMIT: add_3rd_party_metis
     NP_BUILD_DEP: "Cython numpy==1.19.3 opencv-python==4.2.0.32"
     NP_TEST_DEP: "numpy==1.19.3 Cython networkx pytest"
     WHEELHOUSE_UPLOADER_USERNAME: travis-worker
@@ -72,9 +72,10 @@ test_script:
     # run tests from install wheel
     - cd ..
     - python -c "import pgl"  
+    - cd %REPO_DIR$\test
 
 on_success:
   - python -m pip install twine
   #- "python -m twine upload %REPO_DIR%\\dist\\* --skip-existing -p %TWINE_PASSWD% -u %TWINE_USERNAME% --repository-url https://test.pypi.org/legacy/"
-  - "python -m twine upload %REPO_DIR%\\dist\\* --skip-existing -p %TWINE_PASSWD% -u %TWINE_USERNAME% "
+  # - "python -m twine upload %REPO_DIR%\\dist\\* --skip-existing -p %TWINE_PASSWD% -u %TWINE_USERNAME% "
 
