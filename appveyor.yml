@@ -1,5 +1,6 @@
 # vim ft=yaml
 # CI on Windows via appveyor
+#
 
 environment:
   global:
