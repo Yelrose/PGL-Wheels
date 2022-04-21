@@ -9,8 +9,8 @@ environment:
     REPO_DIR: PGL
     PACKAGE_NAME: pgl
     BUILD_COMMIT: main 
-    NP_BUILD_DEP: "Cython numpy==1.19.3"
-    NP_TEST_DEP: "numpy==1.19.3 Cython networkx pytest"
+    NP_BUILD_DEP: "Cython numpy==1.20.3"
+    NP_TEST_DEP: "numpy==1.20.3 Cython networkx pytest"
     WHEELHOUSE_UPLOADER_USERNAME: travis-worker
     TWINE_USERNAME: yelrose
     TWINE_PASSWD:
