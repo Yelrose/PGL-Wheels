@@ -8,9 +8,9 @@ environment:
   global:
     REPO_DIR: PGL
     PACKAGE_NAME: pgl
-    BUILD_COMMIT: main 
-    NP_BUILD_DEP: "Cython numpy==1.19.3"
-    NP_TEST_DEP: "numpy==1.19.3 Cython networkx pytest"
+    BUILD_COMMIT: 2.2.4 
+    NP_BUILD_DEP: "cython>=0.29.21 numpy==1.19.0"
+    NP_TEST_DEP: "cython>=0.29.21 numpy==1.19.0 networkx pytest"
     WHEELHOUSE_UPLOADER_USERNAME: travis-worker
     TWINE_USERNAME: yelrose
     TWINE_PASSWD:
@@ -72,7 +72,7 @@ test_script:
     # install from wheel
     - python -m pip install %NP_TEST_DEP%
     - python -m pip install --no-index --find-links dist/ %PACKAGE_NAME%
-    - python -m pip install paddlepaddle==2.2.1
+    - python -m pip install paddlepaddle==2.3.0
 
     # run tests from install wheel
     - cd ..
